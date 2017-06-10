@@ -1,0 +1,7 @@
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <Encrypt xmlns="https://ecomm.sella.it/">
+            {request}
+        </Encrypt>
+    </Body>
+</Envelope>
