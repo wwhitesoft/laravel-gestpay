@@ -39,7 +39,7 @@ Open `config/gestpay.php` configuration file and set `shopLogin` and `uicCode`:
 return [
     'shopLogin'      => 'YOUR_SHOP_LOGIN',
     'uicCode'        => 'CURRENCY_CODE',
-    'test'           => 'true' // supported: v2|invisible 
+    'test'           => true // supported: true|false 
 ];
 ```
 - **shopLogin** is the code that is assigned to your account
