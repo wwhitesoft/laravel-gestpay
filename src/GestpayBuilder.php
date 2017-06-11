@@ -77,7 +77,7 @@ class GestpayBuilder {
 	 *
 	 * @return boolean | redirect on payment page
 	 */
-    public function byeByeMoney($amount, $shopTransactionId, $languageId = 1)
+    public function pay($amount, $shopTransactionId, $languageId = 1)
     {
 
         $res = $this->Encrypt(['amount' => '20', 'shopTransactionId' => $shopTransactionId]);
