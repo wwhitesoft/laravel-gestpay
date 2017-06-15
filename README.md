@@ -75,10 +75,10 @@ Now, check whether the payment is succeeded. Gestpay response contains 2 paramet
 ```php
 public function gestpayCallback($status){
     ...
-    $gestpay_response = request()->input('b');
+    $gestpay_response = gestpay()->checkResponse();
 }
 ```
-`$gestpay_response` is an array that contains:
+`$gestpay_response` will be an array that containing:
 - **transaction_result** should be true or false
 - **shop_transaction_id** the `$shopTransactionId` you have sent through `pay` method
 
