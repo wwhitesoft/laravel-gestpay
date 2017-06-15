@@ -143,19 +143,27 @@ class GestpayBuilder {
 	/**
 	 * Decrypt SOAP response in order to checks whether the payment has been successful
 	 *
-	 * @param string $response The XML response to decrypt
-	 *
-	 * @return boolean result
+	 * @return array $result containing 'transaction_result' (boolean true|false) and 'shop_transaction_id'
 	 */
-    public function checkResponse($response)
+    public function checkResponse()
     {
-        $xml_response = $this->Decrypt($response);
+
+    	$b = request()->input('b');
+
+        $xml_response = $this->Decrypt($b);
 
         $xml = self::cleanXML($xml_response);
 
         $response = $xml->Body->DecryptResponse->DecryptResult->GestPayCryptDecrypt;
 
-        $result = (strtolower($response->TransactionResult) == 'ok');
+        $transaction_result = (strtolower($response->TransactionResult) == 'ok');
+        $shop_transaction_id = (string)$response->ShopTransactionID;  
+              
+        $result = [
+        	'transaction_result' => $transaction_result,
+			'shop_transaction_id' => $shop_transaction_id,
+        ];
+
         return $result;
     }
 

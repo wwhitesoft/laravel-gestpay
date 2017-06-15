@@ -71,3 +71,15 @@ Based on the gestpay configuration, you now have to create the routes. For examp
     // e.g.
     Route::get('/gestpay_callback/{status}', ['uses' => 'GestpayController@gestpayCallback']);
 ```
+Now, check whether the payment is succeeded. Gestpay response contains 2 parameters: a and b. `gestpayCallback` will be:
+```php
+public function gestpayCallback($status){
+    ...
+    $gestpay_response = request()->input('b');
+}
+```
+`$gestpay_response` is an array that contains:
+- **transaction_result** should be true or false
+- **shop_transaction_id** the `$shopTransactionId` you have sent through `pay` method
+
+Then you can update your DB or everything you want!
