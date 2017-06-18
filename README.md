@@ -81,5 +81,7 @@ public function gestpayCallback($status){
 `$gestpay_response` will be an array that containing:
 - **transaction_result** should be true or false
 - **shop_transaction_id** the `$shopTransactionId` you have sent through `pay` method
+- **error_code** set to "0" if the transaction is successful
+- **error_description** error code literal description in the language you have chosen
 
 Then you can update your DB or everything you want!
