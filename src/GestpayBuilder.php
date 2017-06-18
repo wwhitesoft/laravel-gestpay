@@ -156,12 +156,16 @@ class GestpayBuilder {
 
         $response = $xml->Body->DecryptResponse->DecryptResult->GestPayCryptDecrypt;
 
-        $transaction_result = (strtolower($response->TransactionResult) == 'ok');
-        $shop_transaction_id = (string)$response->ShopTransactionID;  
-              
+        $transaction_result 	= (strtolower($response->TransactionResult) == 'ok');
+        $shop_transaction_id 	= (string)$response->ShopTransactionID;        
+        $error_code 			= (string)$response->ErrorCode;        
+        $error_description 		= (string)$response->ErrorDescription;        
+
         $result = [
-        	'transaction_result' => $transaction_result,
-			'shop_transaction_id' => $shop_transaction_id,
+        	'transaction_result' 	=> $transaction_result,
+			'shop_transaction_id'	=> $shop_transaction_id,
+			'error_code' 			=> $error_code,
+			'error_description' 	=> $error_description,
         ];
 
         return $result;
