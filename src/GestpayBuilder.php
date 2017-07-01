@@ -13,6 +13,7 @@
 namespace Biscolab\Gestpay;
 
 use Exception;
+use Biscolab\Gestpay\GestpayResponse;
 
 class GestpayBuilder {
 
@@ -161,12 +162,7 @@ class GestpayBuilder {
         $error_code 			= (string)$response->ErrorCode;        
         $error_description 		= (string)$response->ErrorDescription;        
 
-        $result = [
-        	'transaction_result' 	=> $transaction_result,
-			'shop_transaction_id'	=> $shop_transaction_id,
-			'error_code' 			=> $error_code,
-			'error_description' 	=> $error_description,
-        ];
+        $result = new GestpayResponse($transaction_result, $shop_transaction_id, $error_code, $error_description);
 
         return $result;
     }
