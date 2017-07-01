@@ -78,10 +78,10 @@ public function gestpayCallback($status){
     $gestpay_response = gestpay()->checkResponse();
 }
 ```
-`$gestpay_response` will be an array that containing:
-- **transaction_result** should be true or false
-- **shop_transaction_id** the `$shopTransactionId` you have sent through `pay` method
-- **error_code** set to "0" if the transaction is successful
-- **error_description** error code literal description in the language you have chosen
+`$gestpay_response` will be a GestpayResponse object. You can retrieve $gestpay_response properties using the following methods:
+- `$gestpay_response->getTransactionResult()` return **transaction_result**; should be true or false
+- `$gestpay_response->getShopTransactionId()` return **shop_transaction_id**; the `$shopTransactionId` you have sent through `pay` method
+- `$gestpay_response->getErrorCode()` return **error_code**; setting to "0" if the transaction is successful
+- `$gestpay_response->getErrorDescription()` return **error_description**; error code literal description in the language you have chosen
 
 Then you can update your DB or everything you want!
