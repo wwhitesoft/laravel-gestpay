@@ -46,13 +46,48 @@ class GestpayResponse {
 	 * @param $error_code string The error_code
 	 * @param $error_description string The error_description
 	 */
-	public function __construct($transaction_result, $shop_transaction_id, $error_code, $error_description)
-	{
+	public function __construct($transaction_result, $shop_transaction_id, $error_code, $error_description) {
 		$this->transaction_result	= $transaction_result;
 		$this->shop_transaction_id	= $shop_transaction_id;
 		$this->error_code			= $error_code;
 		$this->error_description	= $error_description;
 	}
+
+	/**
+	 * Get the transaction result
+	 *
+	 * @return $transaction_result boolean The transaction_result
+	 */
+	public function getTransactionResult() {
+		return $this->transaction_result;
+	}
+
+	/**
+	 * Get the transaction result
+	 *
+	 * @return $shop_transaction_id boolean The shop_transaction_id
+	 */
+	public function getShopTransactionId() {
+		return $this->shop_transaction_id;
+	}
+
+	/**
+	 * Get the error code
+	 *
+	 * @return $error_code boolean The error_code
+	 */
+	public function getErrorCode() {
+		return $this->error_code;
+	}
+
+	/**
+	 * Get the error description
+	 *
+	 * @return $error_description boolean The error_description
+	 */
+	public function getErrorDescription() {
+		return $this->error_description;
+	}	
 
 
 }
