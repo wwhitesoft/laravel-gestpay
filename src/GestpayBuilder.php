@@ -72,8 +72,8 @@ class GestpayBuilder {
 	/**
 	 * Build and Encrypt XML string in order to Perform payment
 	 *
-	 * @param $amount the amount payable
-	 * @param $shopTransactionId the transaction ID
+	 * @param $amount the Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory)
+	 * @param $shopTransactionId the Identifier attributed to merchant’s transaction (Mandatory)
 	 * @param $languageId the language ID (for future use), default = 1 (italian) - see http://api.gestpay.it/#language-codes
 	 *
 	 * @return boolean | redirect on payment page
@@ -81,7 +81,7 @@ class GestpayBuilder {
     public function pay($amount, $shopTransactionId, $languageId = 1)
     {
 
-        $res = $this->Encrypt(['amount' => '20', 'shopTransactionId' => $shopTransactionId]);
+        $res = $this->Encrypt(['amount' => $amount, 'shopTransactionId' => $shopTransactionId]);
 
         if ( false !== strpos($res, '<TransactionResult>OK</TransactionResult>') && preg_match('/<CryptDecryptString>([^<]+)<\/CryptDecryptString>/', $res, $match) ) {
         	$payment_page_url = ($this->test)? $this->payment_page_test_url : $this->payment_page_prod_url;
