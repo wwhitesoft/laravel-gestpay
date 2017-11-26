@@ -83,10 +83,20 @@ class GestpayBuilder {
     {
 
         $res = $this->Encrypt(['amount' => $amount, 'shopTransactionId' => $shopTransactionId]);
-
+        
         if ( false !== strpos($res, '<TransactionResult>OK</TransactionResult>') && preg_match('/<CryptDecryptString>([^<]+)<\/CryptDecryptString>/', $res, $match) ) {
-        	$payment_page_url = ($this->test)? $this->payment_page_test_url : $this->payment_page_prod_url;
+            $payment_page_url = ($this->test)? $this->payment_page_test_url : $this->payment_page_prod_url;
             return Redirect::to($payment_page_url.'?a=' . $this->shopLogin . '&b=' . $match[1]);
+        }
+        elseif ($this->test) {
+            $error_code = $error_description = '';
+            if(preg_match('/<ErrorCode>([^<]+)<\/ErrorCode>/', $res, $error_code_match)){
+                $error_code = $error_code_match[1];
+            }
+            if(preg_match('/<ErrorDescription>([^<]+)<\/ErrorDescription>/', $res, $error_description_match)){
+                $error_description = $error_description_match[1];
+            }
+            throw new Exception($error_code.': '.$error_description);
         }
 
         return '';
