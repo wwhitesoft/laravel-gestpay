@@ -76,6 +76,8 @@ class GestpayBuilder {
 	 * @param $amount the Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory)
 	 * @param $shopTransactionId the Identifier attributed to merchant’s transaction (Mandatory)
 	 * @param $languageId the language ID (for future use), default = 1 (italian) - see http://api.gestpay.it/#language-codes
+     *
+     * @throws Exception if test mode is active
 	 *
 	 * @return boolean | redirect on payment page
 	 */
