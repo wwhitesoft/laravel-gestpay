@@ -1,9 +1,13 @@
-# laravel-gestpay
+# Laravel Gestpay Package (laravel-gestpay)
+![Packagist version](https://img.shields.io/packagist/v/biscolab/laravel-gestpay.svg) [![Build Status](https://semaphoreci.com/api/v1/biscolab/laravel-gestpay/branches/v1/shields_badge.svg)](https://semaphoreci.com/biscolab/laravel-gestpay)
+
 Gestpay - Banca Sella payment libraries for Laravel 5
 The easiest way to allow your customers to pay with their credit card their purchase on your website using Gestay - Banca Sella
 **The documentation will be improved in the coming days**
 
 ## Liability limitations
+[![MIT License](https://img.shields.io/github/license/biscolab/laravel-gestpay.svg)](https://github.com/biscolab/laravel-gestpay/blob/master/LICENSE)
+
 We are not and will not be responsible for any errors or problems caused by these files. **Please read Gestpay's official documentation carefully before using this package**.
 
 ## Installation

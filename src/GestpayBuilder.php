@@ -2,7 +2,7 @@
 
 /**
  *
- * Biscolab Laravel Gestpay - GestpayServiceProvider Class
+ * Biscolab Laravel Gestpay - GestpayBuilder Class
  * web : robertobelotti.com, github.com/biscolab
  *
  * @package Biscolab\Gestpay
