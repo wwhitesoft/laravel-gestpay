@@ -13,6 +13,7 @@
 namespace Biscolab\Gestpay;
 
 use Exception;
+use Redirect;
 use Biscolab\Gestpay\GestpayResponse;
 
 class GestpayBuilder {
@@ -85,11 +86,10 @@ class GestpayBuilder {
 
         if ( false !== strpos($res, '<TransactionResult>OK</TransactionResult>') && preg_match('/<CryptDecryptString>([^<]+)<\/CryptDecryptString>/', $res, $match) ) {
         	$payment_page_url = ($this->test)? $this->payment_page_test_url : $this->payment_page_prod_url;
-            header('Location: '.$payment_page_url.'?a=' . $this->shopLogin . '&b=' . $match[1]);
-            exit;
+            return Redirect::to($payment_page_url.'?a=' . $this->shopLogin . '&b=' . $match[1]);
         }
 
-        return false;
+        return '';
     }
 
 	/**
