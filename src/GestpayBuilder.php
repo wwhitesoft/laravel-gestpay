@@ -44,7 +44,7 @@ class GestpayBuilder {
 	/**
 	 * The API TEST request URI
 	 */    
-    protected $api_test_url = 'https://testecomm.sella.it/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl';	
+    protected $api_test_url = 'https://sandbox.gestpay.net/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl';	
 	
 	/**
 	 * PaymentPage Official URI
