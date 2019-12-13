@@ -1,10 +1,10 @@
 {
-  "name": "biscolab/laravel-gestpay",
+  "name": "wwhitesoft/laravel-gestpay",
   "license": "MIT",
   "authors": [
     {
-      "name": "Roberto Belotti",
-      "email": "boby.belotti@gmail.com"
+      "name": "Paolo Pedrazzi",
+      "email": "paolo.pedrazzi@gmail.com"
     }
   ],
   "require": {
